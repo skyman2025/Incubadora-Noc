@@ -1,0 +1,44 @@
+
+<form [formGroup]="inscripcionForm" (ngSubmit)="inscribirse()">
+  
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre" placeholder="Nombre" readonly>
+
+    <label>Apellido:</label>
+    <input type="text" formControlName="apellido" placeholder="Apellido" readonly>
+  
+    <label for="email">Correo electrónico:</label>
+    <input id="email" type="email" formControlName="email" placeholder="tuemail@ejemplo.com" />
+  
+    <label for="curso">Seleccionar curso:</label>
+      <select id="curso" formControlName="id_curso" (change)="actualizarCostoYFecha()">
+          <option value="" disabled selected>-- Selecciona un curso --</option>
+          <option *ngFor="let curso of cursos" [value]="curso.id_curso">
+            {{ curso.nombre_curso }} ({{ curso.tipo }})
+          </option>
+      </select>
+  
+    <div *ngIf="monto !== null">
+      <strong>Costo:</strong> {{ costo | currency:'ARS' }}
+    </div>
+     <br>
+    <div *ngIf="fechaInicio">
+      <strong>Fecha de Inicio del curso:</strong> {{ fechaInicio | date }}
+    </div>
+     <br>
+    <div *ngIf="fecha_pago">
+      <strong>Fecha de Pago actual:</strong> {{ fecha_pago | date }}
+    </div>
+     <br>
+
+    <label>
+      <input type="checkbox" formControlName="acepta_politica" />
+      Acepto la política de privacidad
+    </label>
+
+    <br>
+  
+    <button type="submit" [disabled]="inscripcionForm.invalid">Pagar Inscripción</button>
+  </form>
+
+  

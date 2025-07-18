@@ -1,0 +1,91 @@
+
+<div *ngIf="cargando">Cargando...</div>
+
+<div *ngIf="!cargando" class="perfil-container">
+  <h2>Mi Perfil ({{ tipoUsuario }})</h2>
+
+  <!-- Imagen de perfil (comentada) -->
+  <!--
+  <div>
+    <label>Foto de perfil:</label>
+    <input type="file" (change)="onFileSelected($event)">
+  </div>
+  -->
+
+  <div >
+    <img *ngIf="fotoUrl" [src]="fotoUrl" alt="Foto de perfil" style="max-width: 150px; border-radius: 50%;">
+  </div>
+
+  <form [formGroup]="perfilForm" *ngIf="perfilForm" class="perfil-form">
+    
+    <div>
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Apellido:</label>
+      <input type="text" formControlName="apellido" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Fecha de nacimiento:</label>
+      <input type="date" formControlName="fecha_nacimiento" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Dirección:</label>
+      <input type="text" formControlName="direccion" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Teléfono:</label>
+      <input type="text" formControlName="telefono" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="email" formControlName="email" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>DNI:</label>
+      <input type="text" formControlName="dni" [readonly]="!modoEdicion">
+    </div>
+
+    <div>
+      <label>Especialidad:</label>
+      <input type="text" formControlName="especialidad" [readonly]="!modoEdicion">
+    </div>
+
+    <div *ngIf="modoEdicion">
+      <button type="button" (click)="guardarCambios()">Guardar</button>
+      <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+
+    <div *ngIf="!modoEdicion">
+      <button type="button" (click)="activarEdicion()">Editar Perfil</button>
+    </div>
+     <div *ngIf=" tipoUsuario === 'docente'" class="bloque-curso">
+        <a [routerLink]="['/dashboard-profe']" >Panel del Profesor </a>
+    </div>
+       
+    <div *ngIf=" tipoUsuario === 'admin'" class="bloque-curso">
+        <a [routerLink]="['/dashboard-profe']" >Panel del Admin </a>
+    </div>
+     <label *ngIf="cursosInscriptos && cursosInscriptos.length > 0   "> Cursos a los que estas Inscripto</label>
+    <div *ngFor="let inscripcion of cursosInscriptos" class="bloque-curso">
+
+      <a [routerLink]="['/curso/contenido', inscripcion.id_curso]">
+        Curso: {{ inscripcion.curso?.nombre_curso }}
+      </a>
+    </div>  
+    <div *ngIf="!cargandoCursos && (!cursosInscriptos || cursosInscriptos.length === 0) && tipoUsuario === 'alumno'" class="bloque-curso">
+           No estás inscrito en ningún curso.
+    <button class="aula0" [routerLink]="['/cursoDinamico']">Elegir Curso</button>
+    </div>
+
+          
+  </form>
+</div>
+

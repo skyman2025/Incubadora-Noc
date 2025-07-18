@@ -1,0 +1,21 @@
+
+<div *ngFor="let curso of cursos" class="curso-carpinteria">
+  <div class="curso-carpinteria-contenido">    
+    <div class="curso-carpinteria-imagen">
+       <img [src]="curso.foto ? 'http://localhost:3000' + curso.foto : 'assets/img/default.jpg'" [alt]="curso.nombre_curso">
+    </div>
+
+    <div [id]="curso.id_fragmento" class="curso-carpinteria-info">
+      <h2>{{ curso.nombre_curso }}</h2>
+      <p>{{ curso.descripcion }}</p>
+      <ul>
+        <li><strong>Duración:</strong> {{ curso.duracion }} meses</li>
+        <li><strong>Modalidad:</strong> {{ curso.tipo }}</li>
+        <li><strong>Fecha de Inicio:</strong> {{ curso.fecha_inicio | date:'longDate' }}</li>
+        <li><strong>Valor: $</strong>{{ curso.costo }}</li>
+      </ul>
+      <button (click)="irAInscripcion(curso.id_curso)">Inscribirse</button>
+    </div>
+  </div>
+</div>
+

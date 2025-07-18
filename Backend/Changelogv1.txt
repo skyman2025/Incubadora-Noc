@@ -1,0 +1,37 @@
+##Agregar foto a la tabla usuarios 10/05/2025 13:00
+
+ALTER TABLE Usuarios
+ADD COLUMN foto VARCHAR(255) NULL;
+
+### se agrego stripe: 
+
+npm install @stripe/stripe-js
+
+### precarga de admin 22/05/2025:  instale bscrypt  y sequelise cli
+     npm install bcrypt
+     
+     npx sequelize-cli seed:generate --name admin-user
+
+### debo notar que cree el archivo config/config.js y su contenido para poder usar el archivo db/database.js  y el .env
+### debo tener en cuenta que script usar para cargar el admin promero si estoy usando xampp  y ya cree las tablas:
+npm run seed:admin
+### sino deberia usar migration para crear las tablas y demas
+ "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed:admin": "npx sequelize-cli db:seed:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:setup": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "develop": "npm run db:setup && node server.js",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npm run db:setup"
+  },
+## Ejecutar el seeder desde  backend o al instalar
+## Manualmente (solo en desarrollo):
+
+     npx sequelize-cli db:seed:all
+     
+     
+     
+###Trato de crear la base con migrations como ya tengo los modelos lo hago manualmente: 
+npx sequelize-cli migration:generate --name create-users              (este comanto crea el migration del modelo user tendria que hacer lo mismo para cada modelo)
+

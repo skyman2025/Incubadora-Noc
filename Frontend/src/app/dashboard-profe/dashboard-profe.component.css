@@ -1,0 +1,364 @@
+.tablero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #c3e8fd;
+}
+
+.buscarContainer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.buscarContainer input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buscarContainer button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.buscarContainer button:hover {
+  background-color: #45a049;
+}
+
+
+@media (min-width: 768px) {
+    .tablero {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.encabezado {
+    grid-column: span 3;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.titulo {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.subtitulo {
+    color: #020166; 
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.boton {
+    height: 2.5rem;
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    background: #020166;
+    color: #fff;
+    gap: 16px;
+    transition: background 0.2s;
+    margin: 0 0.5rem;
+}
+
+.boton:hover {
+    background: #d75400;
+}
+
+/* Panel resumen */
+.resumen {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.lista {
+    list-style: none;
+    padding: 0;
+}
+
+.lista li {
+    margin-bottom: 0.5rem;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.mis-cursos {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    grid-column: span 2;
+}
+
+.cursos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .cursos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.curso {
+    border: 1px solid #c3e8fd;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    transition: box-shadow 0.2s;
+}
+
+.curso:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.curso-titulo {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+
+.mensajes {
+    grid-column: span 3;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.lista-mensajes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mensaje {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #c3e8fd;
+}
+
+.mensaje:last-child {
+    border-bottom: none;
+}
+
+
+form {
+  max-width: 600px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 8px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+form h3{
+  text-align: center;
+}
+form button{
+  display: block;
+  margin: 20px auto 0 auto; 
+}
+
+.fotoImage {
+  display: block;
+  margin: 20px auto 0 auto;
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  width: 100%; 
+  padding: 10px; 
+  margin: 10px 0;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+}
+input[type="file"] {
+  padding: 10px;
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+label {
+  font-weight: bold; 
+  margin-top: 10px; 
+  display: block; 
+}
+
+button {
+  background-color: #4CAF50; 
+  color: white; 
+  padding: 10px 15px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  display: block;
+  margin: 20px auto 0 auto; 
+}
+
+button:hover {
+  background-color: #45a049; 
+}
+/*  ********** inicio seccion listar usuarios*******/
+
+.busqueda-usuarios h3{
+  text-align: center;
+  color: #020166;
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: center;        
+  border: 2px solid #ccc;        
+  padding: 16px;                  
+  margin: 20px auto;              
+  border-radius: 8px;          
+  max-width: 800px;         
+  box-shadow: 0 0 8px rgba(0,0,0,0.1); 
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  width: 200px; 
+}
+
+.campo input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.campo input[type="number"] {
+  margin-bottom: 0;
+  padding-bottom: 10px; 
+}
+.campo_dato {
+  display: flex;
+  flex-direction: column;
+  width: 200px; 
+}
+.campo-dato label {
+  margin-bottom: 10px;
+  font-weight: 500; 
+}
+.input-grande {
+  height: 40px;
+  padding: 10px;  
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.boton-container {
+  display: flex;
+  align-items: center;
+}
+
+.boton {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .campo,
+  .boton-container {
+    width: 100%;
+  }
+}
+
+.tabla-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table th,
+table td {
+  padding: 8px 12px;
+}
+
+
+/* *************fin seccion usuarios**************/
+/* *************Inicio seccion pagos**************/
+
+
+
+/* *************Fin seccion pagos   **************/
+/* Estilo para mensajes de error (para cuando agrege validaciones) */
+.error {
+  color: red; 
+  font-size: 14px; 
+  margin-top: -10px; 
+  margin-bottom: 10px; 
+}
+
+.main-content {
+  margin-bottom: 80px; /* espacio para el footer fijo */
+}
+
+
+
+  @media (max-width: 768px) {
+   
+}
+  

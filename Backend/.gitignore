@@ -1,0 +1,11 @@
+/node_modules
+node_modules/
+.env
+
+
+
+Changelog.v1.txt
+./Changelogv1.txt.txt
+Changelogv1.txt./
+.Changelogv1.txt.txt
+
